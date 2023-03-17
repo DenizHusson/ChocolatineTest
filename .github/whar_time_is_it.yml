@@ -1,0 +1,13 @@
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  what_time:
+    runs-on: fedora-latest
+
+    step:
+      - name: Donne la date
+        run: date
