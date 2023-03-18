@@ -8,6 +8,6 @@ on:
 jobs:
   what_time:
     runs-on: ubuntu-latest
-    step:
+    steps:
       - name: Donne la date
         run: date
