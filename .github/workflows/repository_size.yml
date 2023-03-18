@@ -12,6 +12,6 @@ jobs:
       - name: Donne le repo
         uses: actions/checkout@v2
       - name: Affiche
-        run: echo "Nom de la branche $(GITHUB_REF)"
+        run: echo "Nom de la branche ${GITHUB_REF}"
       - name: Make
         run: du -skh --exclude=".git"
