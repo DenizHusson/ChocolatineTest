@@ -7,8 +7,11 @@ on:
 
 jobs:
   repo size:
+    runs-on: ubuntu-latest
     steps:
       - name: Donne le repo
         uses: actions/checkout@v2
+      - name: Affiche
         run: echo "Nom de la branche $(GITHUB_REF)"
+      - name: Make
         run: du -skh --exclude=".git"
