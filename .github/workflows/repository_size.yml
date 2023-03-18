@@ -1,0 +1,14 @@
+name: repository size
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  repo size:
+    steps:
+      - name: Donne le repo
+        uses: actions/checkout@v2
+        run: echo "Nom de la branche $(GITHUB_REF)"
+        run: du -skh --exclude=".git"
