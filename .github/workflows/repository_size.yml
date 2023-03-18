@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  repo size:
+  repo-size:
     runs-on: ubuntu-latest
     steps:
       - name: Donne le repo
