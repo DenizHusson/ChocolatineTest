@@ -6,7 +6,7 @@ on:
 
 jobs:
   what_time:
-    runs-on: fedora-latest
+    runs-on: ubuntu-latest
 
     step:
       - name: Donne la date
