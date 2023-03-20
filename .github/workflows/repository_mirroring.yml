@@ -1,8 +1,5 @@
 name: mirroring
 
-env:
-  MIRROR_URL: https://github.com/DenizHusson/ChocolatineTest.git
-
 on:
   push:
     branches:
@@ -15,10 +12,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - run: "echo $(MIRROR_URL)"
       - uses: pixta-dev/repository-mirroring-action@v1
         with:
           target_repo_url:
-            $(MIRROR_URL)
+            https://github.com/DenizHusson/ChocolatineTest.git
           ssh_private_key:
             ${ secrets.GIT_SSH_PRIVATE_KEY }
