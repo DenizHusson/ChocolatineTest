@@ -1,7 +1,7 @@
 name: mirroring
 
 env:
-  MIRROR_URL: git@github.com:DenizHusson/ChocolatineTest.git
+  MIRROR_URL: https://github.com/DenizHusson/ChocolatineTest.git
 
 on:
   push:
