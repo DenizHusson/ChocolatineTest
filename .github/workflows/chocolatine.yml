@@ -1,0 +1,45 @@
+name: chocolatine
+
+env:
+  MIRROR_URL: git@github.com:DenizHusson/ChocolatineTest.git
+
+on:
+  push:
+    branches:
+      - main
+  pull:
+    branches:
+      - main
+
+jobs:
+  check_coding_style:
+    runs-on: epitechcontent/epitest-docker:latest
+  check_program_compilation:
+    needs: check_coding_style
+    runs-on: epitechcontent/epitest-docker:latest
+    steps:
+      name: check_make
+        run: make
+        timeout: 2 minutes
+      name: check_make_fclean
+        run: make fclean
+  run_tests:
+    needs: check_program_compilation
+    runs-on: epitechcontent/epitest-docker:latest
+    steps:
+      name: test_run
+        run : make tests_run
+        timeout: 2 minutes
+  push_to_mirror:
+    needs: check_coding_style
+    runs-on: epitechcontent/epitest-docker:latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses:
+        with:
+          target_repo_url:
+            ${{ env.MIRROR_URL }}
+          ssh_private_key:
+            ${{ secrets.GIT_SSH_PRIVATE_KEY }}
