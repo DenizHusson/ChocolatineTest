@@ -15,7 +15,8 @@ on:
 
 jobs:
   check_coding_style:
-    runs-on: epitechcontent/epitest-docker:latest
+    name: "check coding style"
+    runs-on: ubuntu-latest
   check_program_compilation:
     name: "check program compilation"
     needs: check_coding_style
@@ -29,14 +30,18 @@ jobs:
         run: make fclean
   run_tests:
     needs: check_program_compilation
-    runs-on: epitechcontent/epitest-docker:latest
+    name: "run test"
+    runs-on: ubuntu-latest
+    container:
+      image: epitechcontent/epitest-docker
+    timeout: 2 minutes
     steps:
+      - uses: actions/checkout@v3
       - name: test_run
         run : make tests_run
-        timeout: 2 minutes
   push_to_mirror:
-    needs: check_coding_style
-    runs-on: epitechcontent/epitest-docker:latest
+    needs: run_tests
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
