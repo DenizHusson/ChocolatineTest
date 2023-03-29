@@ -19,8 +19,8 @@ jobs:
     runs-on: epitechcontent/epitest-docker:latest
     steps:
       - name: check_make
-        run: make
-        timeout: 2 minutes
+        - run: make
+        - timeout: 2 minutes
       - name: check_make_fclean
         - run: make fclean
   run_tests:
