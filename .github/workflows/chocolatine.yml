@@ -17,23 +17,23 @@ jobs:
   check_program_compilation:
     needs: check_coding_style
     runs-on: epitechcontent/epitest-docker:latest
-    - steps:
+    steps:
       - name: check_make
-        - run: make
-        - timeout: 2 minutes
+        run: make
+        timeout: 2 minutes
       - name: check_make_fclean
-        - run: make fclean
+        run: make fclean
   run_tests:
     needs: check_program_compilation
     runs-on: epitechcontent/epitest-docker:latest
-    - steps:
+    steps:
       - name: test_run
         run : make tests_run
         timeout: 2 minutes
   push_to_mirror:
     needs: check_coding_style
     runs-on: epitechcontent/epitest-docker:latest
-    - steps:
+    steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
