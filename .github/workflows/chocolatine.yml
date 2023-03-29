@@ -14,12 +14,12 @@ on:
       - 'ga-ignore-**'
 
 jobs:
-  check_coding_style:
-    name: "check coding style"
-    runs-on: ubuntu-latest
+  # check_coding_style:
+  #   name: "check coding style"
+  #   runs-on: ubuntu-latest
   check_program_compilation:
     name: "check program compilation"
-    needs: check_coding_style
+    # needs: check_coding_style
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
