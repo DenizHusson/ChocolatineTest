@@ -17,6 +17,8 @@ jobs:
   check_coding_style:
     name: "check coding style"
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/epitech/coding-style-checker:latest
     steps:
       - uses: actions/checkout@v3
       - name: check
@@ -25,6 +27,8 @@ jobs:
     name: "check program compilation"
     needs: check_coding_style
     runs-on: ubuntu-latest
+    container:
+      image: epitechcontent/epitest-docker
     steps:
       - uses: actions/checkout@v3
       - name: check_make
