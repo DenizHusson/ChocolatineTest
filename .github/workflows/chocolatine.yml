@@ -12,9 +12,9 @@ on:
       - main
 
 jobs:
-  - check_coding_style:
+  check_coding_style:
     runs-on: epitechcontent/epitest-docker:latest
-  - check_program_compilation:
+  check_program_compilation:
     needs: check_coding_style
     runs-on: epitechcontent/epitest-docker:latest
     - steps:
