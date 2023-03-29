@@ -5,11 +5,13 @@ env:
 
 on:
   push:
-    branches:
-      - main
-  pull:
-    branches:
-      - main
+    branches-ignore:
+      - 'ga-ignore-**'
+  pull_request:
+    types:
+      - opened
+    branches-ignore:
+      - 'ga-ignore-**'
 
 jobs:
   check_coding_style:
