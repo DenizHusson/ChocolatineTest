@@ -7,11 +7,12 @@
 
 
 SRC     =		src/dialog_parsing.c 	\
-				src/dialog_str_array.c
+				src/dialog_str_array.c 	\
+				src/test.c
 
 MAIN 	= 		src/main.c
 
-TESTS 	=
+TESTS 	=		src/test.c
 
 OBJ     =       $(SRC:.c=.o)
 
@@ -48,7 +49,7 @@ re:     fclean all
 
 tests_run:
 			$(CC) -o unit_tests $(TESTS) \
-tests/unit_tests.c --coverage -lcriterion
+test_unitaire.c --coverage -lcriterion
 			./unit_tests
 			gcovr
 			$(RM) *.gcda
